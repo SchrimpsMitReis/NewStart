@@ -10,6 +10,13 @@ class Customer(models.Model):
     email_address = models.CharField(max_length=30, blank=True, default="")
     account = models.FloatField(blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+    
+    def save(self, *args, **kwargs):
+        print("Saved")
+        super.save(*args, **kwargs)
+
 class Product(models.Model):
     name = models.CharField(max_length=30)
     price = models.FloatField()
@@ -27,4 +34,12 @@ class Producttype(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     type_name = models.CharField(max_length=30, default= "")
+
+    def __str__(self):
+        return f"{self.type_name}"
+    
+    def save(self, *args, **kwargs):
+        print("Saved")
+        super.save(*args, **kwargs)
+
 
