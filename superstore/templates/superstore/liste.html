@@ -1,0 +1,21 @@
+<h1>Articles</h1>
+<table>
+    <thead>
+        <td>Vorname</td>
+        <td>Nachname</td>
+        <td>Email Adresse</td>
+        <td>Saldo</td>
+        <td>NL?</td>
+    </thead>
+{% for customer in object_list %}
+    <tr>
+        <td>{{ customer.first_name }}</td>
+        <td>{{ customer.last_name }}</td>
+        <td>{{ customer.email_address }}</td>
+        <td>{{ customer.account }} €</td>
+        <td>{{ customer.newsletter_abo }}</td>
+    </tr>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</table>
